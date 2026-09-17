@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Instrument Sans", "Manrope", system-ui, sans-serif;
+  --font-heading: "Newsreader", Georgia, serif;
+  --font-logo: "Bricolage Grotesque", system-ui, sans-serif;
+
+  --color-page: #0b0b0b;
+  --color-card: #1c1c1c;
+  --color-border: #fdfdfd24;
+  --color-primary: #fdfdfd;
+  --color-muted: #fdfdfda5;
+  --color-faint: #fdfdfd;
+  --color-accent: #3b82f6;
+
+  --text-base: clamp(14px, 2.4vw, 16px);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--color-page);
+  color: var(--color-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* button:hover{
+  background: red;
+} */
+
+* {
+  box-sizing: border-box;
+  cursor: none !important;
+}
+
+
+.hero-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  filter: blur(100px);
+  opacity: 0.15;
+}
+
+.hero-glow-two {
+  right: 5%;
+  bottom: -10%;
+  background: #3b82f6;
+  animation: heroGlowTwo 14s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlowTwo {
+  from {
+    transform: translate3d(50px, 30px, 0) scale(0.8);
+  }
+
+  to {
+    transform: translate3d(-100px, -80px, 0) scale(1.2);
+  }
+}
+
+@keyframes bounce-down {
+  0%, 100% {
+    transform: translateY(0) rotate(90deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(90deg);
+  }
+}
+
+.bounce-down {
+  animation: bounce-down 1s ease infinite;
+}
+
+
