@@ -7,7 +7,7 @@ function Contact() {
   return (
     <section
       id="contact"
-      className="flex flex-col gap-[33px] px-5 pt-10 pb-5 md:px-13 md:pt-30 md:mb-15"
+      className="flex flex-col gap-[33px] px-5 pt-10 pb-10 md:px-13 md:pt-30 md:mb-15"
     >
       <div className="max-w-[971px]">
         <Reveal>

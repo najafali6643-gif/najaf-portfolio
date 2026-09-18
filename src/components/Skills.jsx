@@ -6,7 +6,7 @@ function SkillCard({ skill, index }) {
   return (
     <Reveal
       delay={0.08 * index}
-      className="flex flex-col border-b sm:border-r sm:border-b-0 border-[var(--color-border)] pr-[32px] py-[42px] md:w-[280px]"
+      className="flex flex-col border-b sm:border-r sm:border-b-0 border-[var(--color-border)] pr-[32px] py-[42px]"
     >
       <span className="text-[clamp(11px,2.5vw,12px)] font-light text-[var(--color-faint)] opacity-65">
         {skill.number}

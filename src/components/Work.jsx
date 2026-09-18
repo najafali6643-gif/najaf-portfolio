@@ -54,7 +54,7 @@ function ProjectRow({ project }) {
   }
 
   const content = (
-    <div className="flex w-auto flex-col sm:w-[480px]">
+    <div className="flex w-auto flex-col lg:w-[480px]">
       <span className="text-[clamp(11px,2.5vw,12px)] font-light text-[var(--color-muted)]">
         {project.number}
       </span>
@@ -107,7 +107,7 @@ function ProjectRow({ project }) {
         h-full
         lg:h-[338px]
         w-full
-        lg:w-[630px]
+        lg:max-w-[630px]
         cursor-none
         overflow-hidden
         rounded-[12px]
@@ -176,7 +176,7 @@ function ProjectRow({ project }) {
   )
 
   return (
-    <Reveal className={`flex flex-col items-center justify-center gap-8 md:gap-14 ${
+    <Reveal className={`flex flex-col items-start justify-center gap-8 md:gap-14 ${
     project.imageRight ? 'lg:flex-row-reverse' : 'lg:flex-row'
   }`}>
       {image}

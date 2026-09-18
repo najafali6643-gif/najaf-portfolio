@@ -30,7 +30,7 @@ function About() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <p className="mt-2 max-w-[500px] text-base leading-[1.5] text-[var(--color-faint)] opacity-65 max-w-[500px] md:mt-6">
+          <p className="mt-2 lg:max-w-[500px] text-base leading-[1.5] text-[var(--color-faint)] opacity-65 md:mt-6">
             I&apos;m an aspiring Front-End Developer focused on building clean,
             responsive, and modern web experiences. I enjoy turning UI/UX designs
             into pixel-perfect interfaces and bringing them to life with HTML, CSS,
