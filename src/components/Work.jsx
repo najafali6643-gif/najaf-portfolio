@@ -109,8 +109,6 @@ function ProjectRow({ project }) {
         w-full
         lg:max-w-[630px]
         cursor-none
-        overflow-hidden
-        rounded-[12px]
       "
     >
       {/* Project Image */}
@@ -176,7 +174,7 @@ function ProjectRow({ project }) {
   )
 
   return (
-    <Reveal className={`flex flex-col items-start justify-center gap-8 md:gap-14 ${
+    <Reveal className={`flex flex-col items-center justify-center gap-8 md:gap-14 ${
     project.imageRight ? 'lg:flex-row-reverse' : 'lg:flex-row'
   }`}>
       {image}
