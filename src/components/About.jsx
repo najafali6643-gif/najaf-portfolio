@@ -1,5 +1,4 @@
 import Button from './ui/Button.jsx'
-import SectionTag from './ui/SectionTag.jsx'
 import Reveal from './ui/Reveal.jsx'
 import Parallax from './ui/Parallax.jsx'
 import aboutPortrait from '../assets/image/about-portrait.png'

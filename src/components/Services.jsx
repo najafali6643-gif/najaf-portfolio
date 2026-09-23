@@ -1,5 +1,4 @@
 import Button from './ui/Button.jsx'
-import SectionTag from './ui/SectionTag.jsx'
 import Reveal from './ui/Reveal.jsx'
 import { services } from '../data/services.js'
 import { usePageTransition } from '../Context/PageTransitionContext.jsx'

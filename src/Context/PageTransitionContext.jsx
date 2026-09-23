@@ -82,6 +82,7 @@ export function PageTransitionProvider({ children }) {
   );
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function usePageTransition() {
   return useContext(PageTransitionContext);
 }

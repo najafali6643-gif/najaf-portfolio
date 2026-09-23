@@ -1,4 +1,3 @@
-import SectionTag from './ui/SectionTag.jsx'
 import Reveal from './ui/Reveal.jsx'
 
 const EMAIL = 'najafali6643@gmail.com'
@@ -10,8 +9,6 @@ function Contact() {
       className="flex flex-col gap-[33px] px-5 pt-10 pb-10 md:px-13 md:pt-30 md:mb-15"
     >
       <div className="max-w-[971px]">
-        <Reveal>
-        </Reveal>
         <Reveal delay={0.1}>
           <p className="mt-6 max-w-[633px] font-sans text-base leading-6 text-[var(--color-faint)] opacity-65">
             Have a project in mind or looking for someone to bring your website idea

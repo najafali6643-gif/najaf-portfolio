@@ -1,4 +1,3 @@
-import SectionTag from './ui/SectionTag.jsx'
 import Reveal from './ui/Reveal.jsx'
 import { skills } from '../data/skills.js'
 

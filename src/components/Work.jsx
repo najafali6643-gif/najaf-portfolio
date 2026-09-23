@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import Button from './ui/Button.jsx'
-import SectionTag from './ui/SectionTag.jsx'
 import Reveal from './ui/Reveal.jsx'
 import Parallax from './ui/Parallax.jsx'
 import { projects } from '../data/projects.js'

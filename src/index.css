@@ -48,10 +48,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* button:hover{
-  background: red;
-} */
-
 * {
   box-sizing: border-box;
   cursor: none !important;
@@ -65,23 +61,6 @@ body {
   border-radius: 9999px;
   filter: blur(100px);
   opacity: 0.15;
-}
-
-.hero-glow-two {
-  right: 5%;
-  bottom: -10%;
-  background: #3b82f6;
-  animation: heroGlowTwo 14s ease-in-out infinite alternate;
-}
-
-@keyframes heroGlowTwo {
-  from {
-    transform: translate3d(50px, 30px, 0) scale(0.8);
-  }
-
-  to {
-    transform: translate3d(-100px, -80px, 0) scale(1.2);
-  }
 }
 
 @keyframes bounce-down {
