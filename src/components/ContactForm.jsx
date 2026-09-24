@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Reveal from './ui/Reveal.jsx'
 
 const EMAIL = 'najafali6643@gmail.com'
+const ACCESS_KEY = '61cc4b06-3f3f-4aea-8104-27ffa8ce5299'
 
 function Field({
   label,
@@ -39,20 +40,73 @@ function ContactForm() {
   const [email, setEmail] = useState('')
   const [subject, setSubject] = useState('')
   const [message, setMessage] = useState('')
+  const [honeypot, setHoneypot] = useState('')
+  const [sending, setSending] = useState(false)
+  const [status, setStatus] = useState(null)
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const body = `From: ${name} (${email})\n\n${message}`
-    const href = `mailto:${EMAIL}?subject=${encodeURIComponent(
-      subject,
-    )}&body=${encodeURIComponent(body)}`
+    if (honeypot) return
 
-    window.location.href = href
+    setSending(true)
+    setStatus(null)
+
+    const messageBody = subject
+      ? `Subject: ${subject}\n\n${message}`
+      : message
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: ACCESS_KEY,
+          name,
+          email,
+          subject,
+          message: messageBody,
+          from_name: name,
+          replyto: email,
+          botcheck: honeypot,
+          _captcha: 'false',
+        }),
+      })
+
+      const data = await res.json()
+
+      if (data.success) {
+        setStatus('success')
+        setName('')
+        setEmail('')
+        setSubject('')
+        setMessage('')
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col">
+      <input
+        type="text"
+        name="botcheck"
+        value={honeypot}
+        onChange={(event) => setHoneypot(event.target.value)}
+        className="hidden"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+      />
+
       <Reveal y={20}>
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
           <Field
@@ -107,11 +161,31 @@ function ContactForm() {
       <Reveal y={20} delay={0.24}>
       <button
         type="submit"
-        className="group mt-12 inline-flex w-fit items-center gap-3 rounded-full bg-[var(--color-primary)] px-10 py-3 font-sans text-base font-medium text-[var(--color-page)] transition-all duration-300 ease-out hover:bg-black/10 hover:text-[var(--color-primary)] hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.3)]"
+        disabled={sending}
+        className="group mt-12 inline-flex w-fit items-center gap-3 rounded-full bg-[var(--color-primary)] px-10 py-3 font-sans text-base font-medium text-[var(--color-page)] transition-all duration-300 ease-out hover:bg-black/10 hover:text-[var(--color-primary)] hover:shadow-[inset_0_0_0_1px_rgba(255,255,255,0.3)] disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:bg-[var(--color-primary)] disabled:hover:text-[var(--color-page)] disabled:hover:shadow-none"
       >
-        Send message
+        {sending ? 'Sending…' : 'Send message'}
       </button>
       </Reveal>
+
+      {status === 'success' && (
+        <p className="mt-6 font-sans text-[15px] font-medium leading-6 text-[var(--color-primary)]">
+          Message sent — I&apos;ll get back to you soon.
+        </p>
+      )}
+
+      {status === 'error' && (
+        <p className="mt-6 font-sans text-[15px] font-medium leading-6 text-red-400">
+          Something went wrong — please try again, or email me directly at{' '}
+          <a
+            href={`mailto:${EMAIL}`}
+            className="underline underline-offset-4"
+          >
+            {EMAIL}
+          </a>
+          .
+        </p>
+      )}
     </form>
   )
 }

@@ -53,7 +53,7 @@ function ContactPage() {
                 href={`mailto:${EMAIL}`}
                 className="group mt-2 inline-flex relative gap-2 font-heading text-[clamp(30px,5.5vw,42px)] font-light leading-[1.06] bg-[linear-gradient(90deg,#EBE1B0_-86.53%,#AEA8FE_100%)] bg-clip-text text-transparent transition-opacity md:mt-6 active:opacity-[0.8]"
               >
-                <span className="pointer-events-none absolute inset-x-0 -bottom-[0.06em] h-[0.04em] origin-left scale-x-0 bg-[#AEA8FE] transition-transform duration-700 ease-out group-hover:scale-x-80"></span>
+                <span className="pointer-events-none absolute inset-x-0 -bottom-[0.06em] h-[0.04em] origin-left scale-x-0 bg-[#AEA8FE] transition-transform duration-700 ease-out group-hover:scale-x-92"></span>
                 {EMAIL}
 
                 <span className="transition-all hidden duration-700 ease-out overflow-hidden md:inline-flex items-center opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0">
