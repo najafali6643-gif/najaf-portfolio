@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar.jsx'
 import Hero from './components/hero/Hero.jsx'
@@ -10,11 +11,21 @@ import Footer from './components/Footer.jsx'
 import ParticleBackground from './components/ui/ParticleBackground.jsx'
 import CustomCursor from './components/ui/CustomCursor.jsx'
 import SmoothScroll from './components/ui/SmoothScroll.jsx'
-import ContactPage from './pages/ContactPage.jsx'
+import NotFound from './pages/NotFound.jsx'
+import { usePageMeta } from './hooks/usePageMeta.js'
 import { PageTransitionProvider } from './Context/PageTransitionContext.jsx'
 import { LoaderProvider } from './Context/LoaderContext.jsx'
 
+const ContactPage = lazy(() => import('./pages/ContactPage.jsx'))
+
 function Home() {
+  usePageMeta({
+    title: 'Najaf Ali — Front-end Developer',
+    description:
+      'Front-end Developer for AI & products. Building clean, responsive, and modern web experiences.',
+    canonical: 'https://najaf-portfolio.vercel.app/',
+  })
+
   return (
     <div id="top">
       <ParticleBackground fixed />
@@ -45,7 +56,15 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/contact" element={<ContactPage />} />
+          <Route
+            path="/contact"
+            element={
+              <Suspense fallback={null}>
+                <ContactPage />
+              </Suspense>
+            }
+          />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </PageTransitionProvider>
     </LoaderProvider>

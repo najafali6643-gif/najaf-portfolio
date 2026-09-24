@@ -1,7 +1,7 @@
 import Button from './ui/Button.jsx'
 import Reveal from './ui/Reveal.jsx'
 import Parallax from './ui/Parallax.jsx'
-import aboutPortrait from '../assets/image/about-portrait.png'
+import aboutPortrait from '../assets/image/about-portrait.webp'
 import { usePageTransition } from '../Context/PageTransitionContext.jsx'
 
 function About() {
@@ -16,6 +16,10 @@ function About() {
         <img
           src={aboutPortrait}
           alt="Najaf Ali — portrait"
+          width="1000"
+          height="1000"
+          loading="lazy"
+          decoding="async"
           className="h-auto w-full object-cover"
         />
       </Parallax>

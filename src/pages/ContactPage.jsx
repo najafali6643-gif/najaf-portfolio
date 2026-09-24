@@ -4,6 +4,7 @@ import ParticleBackground from '../components/ui/ParticleBackground.jsx'
 import CustomCursor from '../components/ui/CustomCursor.jsx'
 import ContactForm from '../components/ContactForm.jsx'
 import Reveal from '../components/ui/Reveal.jsx'
+import { usePageMeta } from '../hooks/usePageMeta.js'
 
 const EMAIL = 'najafali6643@gmail.com'
 
@@ -13,6 +14,12 @@ const INFO = [
 ]
 
 function ContactPage() {
+  usePageMeta({
+    title: 'Contact — Najaf Ali',
+    description:
+      'Get in touch with Najaf Ali, a front-end developer based in Karachi, Pakistan. Briefs, collaborations, or a quick question — drop a note.',
+    canonical: 'https://najaf-portfolio.vercel.app/contact',
+  })
   return (
     <div id="top">
       <ParticleBackground fixed />

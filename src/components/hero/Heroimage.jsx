@@ -39,6 +39,10 @@ export default function HeroImage({ normalImage, robotImage }) {
       <img
         src={normalImage}
         alt="Najaf Ali — front-end developer portrait"
+        width="1200"
+        height="900"
+        fetchpriority="high"
+        decoding="async"
         className="hero-portrait-image"
       />
 
@@ -49,6 +53,10 @@ export default function HeroImage({ normalImage, robotImage }) {
         <img
           src={robotImage}
           alt=""
+          width="1200"
+          height="900"
+          loading="lazy"
+          decoding="async"
           className="hero-portrait-image"
         />
       </div>

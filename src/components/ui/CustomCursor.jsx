@@ -94,11 +94,13 @@ function CustomCursor({
     }
 
     function animate() {
-      ringPos.x += (mouse.x - ringPos.x) * follow
-      ringPos.y += (mouse.y - ringPos.y) * follow
+      if (!document.hidden) {
+        ringPos.x += (mouse.x - ringPos.x) * follow
+        ringPos.y += (mouse.y - ringPos.y) * follow
 
-      ring.style.left = `${ringPos.x}px`
-      ring.style.top = `${ringPos.y}px`
+        ring.style.left = `${ringPos.x}px`
+        ring.style.top = `${ringPos.y}px`
+      }
 
       raf = requestAnimationFrame(animate)
     }

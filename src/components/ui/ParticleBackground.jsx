@@ -819,6 +819,8 @@ function ParticleBackground({
      */
 
     function animate(now) {
+      if (document.hidden) return
+
       const dt = Math.min(
         (now - lastTime) / 1000,
         0.1,
@@ -948,6 +950,21 @@ function ParticleBackground({
       resize,
     )
 
+    function onVisibilityChange() {
+      cancelAnimationFrame(raf)
+      raf = null
+
+      if (!document.hidden) {
+        lastTime = performance.now()
+        raf = requestAnimationFrame(animate)
+      }
+    }
+
+    document.addEventListener(
+      'visibilitychange',
+      onVisibilityChange,
+    )
+
     /*
      * ==========================================
      * INITIALIZE
@@ -989,6 +1006,11 @@ function ParticleBackground({
       window.removeEventListener(
         'resize',
         resize,
+      )
+
+      document.removeEventListener(
+        'visibilitychange',
+        onVisibilityChange,
       )
 
       cancelAnimationFrame(raf)

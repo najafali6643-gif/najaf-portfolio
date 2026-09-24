@@ -84,7 +84,7 @@ function PageLoader({ onComplete }) {
     tl.to(percentage, {
       opacity: 1,
       y: 0,
-      duration: 0.6,
+      duration: 0.1,
       ease: 'power3.out',
     })
 
@@ -96,7 +96,7 @@ function PageLoader({ onComplete }) {
     // Counter + progress
     tl.to(counter, {
       value: 100,
-      duration: 2.4,
+      duration: 0.2,
       ease: 'power2.out',
 
       onUpdate: () => {
@@ -126,28 +126,10 @@ function PageLoader({ onComplete }) {
       updateStatus('Ready')
     })
 
-    // Small pause
-    tl.to({}, {
-      duration: 0.2,
-    })
-
-    // Slight scale/opacity emphasis at 100%
-    tl.to(percentage, {
-      scale: 1.025,
-      duration: 0.2,
-      ease: 'power2.out',
-    })
-
-    tl.to(percentage, {
-      scale: 1,
-      duration: 0.25,
-      ease: 'power2.inOut',
-    })
-
     // Premium exit
     tl.to(loader, {
       yPercent: -100,
-      duration: 1.15,
+      duration: 0.25,
       ease: 'expo.inOut',
     })
 

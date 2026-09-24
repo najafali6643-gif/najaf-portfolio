@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import Button from '../ui/Button.jsx'
-import heroPortrait from '../../assets/image/hero-portrait.png'
-import robotPortrait from '../../assets/image/hero-portrait-robot.png'
+import heroPortrait from '../../assets/image/hero-portrait.webp'
+import robotPortrait from '../../assets/image/hero-portrait-robot.webp'
 import HeroBackground from './HeroBackground.jsx'
 import HeroImage from './Heroimage.jsx'
 import { usePageTransition } from '../../Context/PageTransitionContext.jsx'
@@ -60,8 +60,10 @@ function Hero() {
           custom={2}
           className="max-w-[580px] mt-2 text-base text-[var(--color-faint)] opacity-65 md:max-w-[480px] md:mt-2"
         >
-          Lead Interaction Designer for AI at Netflix. Previously Google,
-          LinkedIn, Apple, and eBay. Based in Las Vegas, from Toronto.
+          Front-end Developer focused on building fast, clean, and
+          modern web experiences. I turn UI/UX designs into pixel-perfect
+          interfaces with HTML, CSS, JavaScript, and React. Based in
+          Karachi, Pakistan.
         </motion.p>
 
         <motion.div

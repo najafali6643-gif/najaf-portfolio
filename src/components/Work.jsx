@@ -16,15 +16,17 @@ function ProjectRow({ project }) {
 
   useEffect(() => {
     const animate = () => {
-      current.current.x +=
-        (mouse.current.x - current.current.x) * 0.15
+      if (!document.hidden) {
+        current.current.x +=
+          (mouse.current.x - current.current.x) * 0.15
 
-      current.current.y +=
-        (mouse.current.y - current.current.y) * 0.15
+        current.current.y +=
+          (mouse.current.y - current.current.y) * 0.15
 
-      if (projectCursorRef.current) {
-        projectCursorRef.current.style.left = `${current.current.x}px`
-        projectCursorRef.current.style.top = `${current.current.y}px`
+        if (projectCursorRef.current) {
+          projectCursorRef.current.style.left = `${current.current.x}px`
+          projectCursorRef.current.style.top = `${current.current.y}px`
+        }
       }
 
       animationRef.current = requestAnimationFrame(animate)
@@ -115,6 +117,10 @@ function ProjectRow({ project }) {
         <img
           src={project.image}
           alt={`${project.title} project screenshot`}
+          width="1440"
+          height="817"
+          loading="lazy"
+          decoding="async"
           className="
             h-full
             w-full

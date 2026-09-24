@@ -15,7 +15,9 @@ function SmoothScroll() {
     let rafId
 
     function raf(time) {
-      lenis.raf(time)
+      if (!document.hidden) {
+        lenis.raf(time)
+      }
       rafId = requestAnimationFrame(raf)
     }
 

@@ -1,7 +1,7 @@
-import myvoyage from '../assets/image/project-myvoyage.png'
-import lotus from '../assets/image/project-lotus.png'
-import coleman from '../assets/image/project-coleman.png'
-import myria from '../assets/image/project-myria.png'
+import myvoyage from '../assets/image/project-myvoyage.webp'
+import lotus from '../assets/image/project-lotus.webp'
+import coleman from '../assets/image/project-coleman.webp'
+import myria from '../assets/image/project-myria.webp'
 
 export const projects = [
   {
